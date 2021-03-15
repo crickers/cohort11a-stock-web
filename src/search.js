@@ -60,7 +60,7 @@ function Search(props) {
     // if not show an error
     // if yes, make a purchase and add a field in the portfolio table
 
-    if (buyQuantity === 0) {
+    if (buyQuantity == 0) {
       alert("Buy quantity needs to be greater than 0!");
     }
 
@@ -68,7 +68,7 @@ function Search(props) {
     console.log("cashNeeded is", cashNeeded);
 
     if (cashNeeded > currentWallet.value) {
-      alert("You dont have enough enough cash for that!");
+      alert("You dont have enough cash!");
     } else {
       // make the purchase
       // making a field in the database table for portfolio
@@ -132,72 +132,43 @@ function Search(props) {
         </div>
       </div>
 
-      <div className="grid grid-cols-2">
-        <div className={"border p-5"}>
-          {/* <h1 className={"text-2xl"}>stock name/symbol</h1> */}
-        </div>
-        <div className={"border p-5"}>
-          <span>
-            <input
-              type="number"
-              onChange={onBuyChange}
-              className={"border"}
-              value={buyQuantity}
-            />
-            &nbsp;&nbsp;
-            <span
-              className={
-                "bg-blue-600 cursor-pointer p-2 rounded text-white text-xl pl-5"
-              }
-              onClick={buyStock}
-            >
-              Buy
+      {ticker && (
+        <div className="grid grid-cols-2">
+          <div className={"border p-5"}>
+            {/*{currentStock && <h1 className={'text-2xl'}>{currentStock.data}</h1>}*/}
+            <h1 className={"text-2xl"}>
+              {ticker} :{" "}
+              {currentStock && (
+                <span>
+                  &nbsp;&nbsp;{currentStock.data.currency}{" "}
+                  {currentStock.data.price}
+                </span>
+              )}
+            </h1>
+          </div>
+          <div className={"border p-5"}>
+            <span>
+              <input
+                type="number"
+                onChange={onBuyChange}
+                className={"border"}
+                value={buyQuantity}
+              />
+              &nbsp;&nbsp;
+              <span
+                className={
+                  "bg-blue-600 cursor-pointer p-2 rounded text-white text-xl pl-5 pr-5"
+                }
+                onClick={buyStock}
+              >
+                Buy
+              </span>
+              &nbsp;&nbsp;&nbsp;
             </span>
-            &nbsp;&nbsp;
-          </span>
+            {/*<span className={'bg-red-600 cursor-pointer p-2 rounded text-white text-xl pl-5 pr-5'}>Sell</span>*/}
+          </div>
         </div>
-
-        {ticker && (
-          <div className="grid grid-cols-2">
-            <div className={"border p-5"}>
-              {/*{currentStock && <h1 className={'text-2xl'}>{currentStock.data}</h1>}*/}
-
-              <h1 className={"text-2xl"}>
-                {ticker}:
-                {currentStock && (
-                  <span>
-                    &nbsp;&nbsp;{currentStock.data.currency}
-                    {currentStock.data.price}
-                  </span>
-                )}
-              </h1>
-            </div>
-            <div className={"border p-5"}>
-              {ticker && 
-                //   <span>
-                //     <input
-                //       type="number"
-                //       onChange={onBuyChange}
-                //       className={"border"}
-                //       value={buyQuantity}
-                //     />
-                //     &nbsp;&nbsp;
-                    <span
-                      className={
-                        "bg-blue-600 cursor-pointer p-2 rounded text-white text-xl pl-5 pr-5"
-                      }
-                      onClick={buyStock}
-                    >
-                      Buy
-                    </span>
-                    &nbsp;&nbsp;&nbsp;
-                  </span>
-                
-                /*{<span className={'bg-red-600 cursor-pointer p-2 rounded text-white text-xl pl-5 pr-5'}>Sell</span>}*/
-              
-            </div>
-      </div>
-
+      )}
     </div>
   );
 }
