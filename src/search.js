@@ -60,7 +60,7 @@ function Search(props) {
     // if not show an error
     // if yes, make a purchase and add a field in the portfolio table
 
-    if (buyQuantity == 0) {
+    if (buyQuantity === 0) {
       alert("Buy quantity needs to be greater than 0!");
     }
 
