@@ -173,8 +173,7 @@ function Search(props) {
               </h1>
             </div>
             <div className={"border p-5"}>
-              {
-                ticker && 
+              {ticker && 
                 //   <span>
                 //     <input
                 //       type="number"
@@ -193,13 +192,12 @@ function Search(props) {
                     </span>
                     &nbsp;&nbsp;&nbsp;
                   </span>
-                )
+                
                 /*{<span className={'bg-red-600 cursor-pointer p-2 rounded text-white text-xl pl-5 pr-5'}>Sell</span>}*/
               
             </div>
-          </div>
-        )}
       </div>
+
     </div>
   );
 }
