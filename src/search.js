@@ -161,38 +161,41 @@ function Search(props) {
           <div className="grid grid-cols-2">
             <div className={"border p-5"}>
               {/*{currentStock && <h1 className={'text-2xl'}>{currentStock.data}</h1>}*/}
-              {ticker && (
-                <h1 className={"text-2xl"}>
-                  {ticker} :
-                  {currentStock && (
-                    <span>
-                      &nbsp;&nbsp;{currentStock.data.currency}
-                      {currentStock.data.price}
-                    </span>
-                  )}
-                </h1>
-              )}
+
+              <h1 className={"text-2xl"}>
+                {ticker}:
+                {currentStock && (
+                  <span>
+                    &nbsp;&nbsp;{currentStock.data.currency}
+                    {currentStock.data.price}
+                  </span>
+                )}
+              </h1>
             </div>
             <div className={"border p-5"}>
-              <span>
-                <input
-                  type="number"
-                  onChange={onBuyChange}
-                  className={"border"}
-                  value={buyQuantity}
-                />
-                &nbsp;&nbsp;
-                <span
-                  className={
-                    "bg-blue-600 cursor-pointer p-2 rounded text-white text-xl pl-5 pr-5"
-                  }
-                  onClick={buyStock}
-                >
-                  Buy
-                </span>
-                &nbsp;&nbsp;&nbsp;
-              </span>
-              {/*<span className={'bg-red-600 cursor-pointer p-2 rounded text-white text-xl pl-5 pr-5'}>Sell</span>*/}
+              {
+                ticker && 
+                //   <span>
+                //     <input
+                //       type="number"
+                //       onChange={onBuyChange}
+                //       className={"border"}
+                //       value={buyQuantity}
+                //     />
+                //     &nbsp;&nbsp;
+                    <span
+                      className={
+                        "bg-blue-600 cursor-pointer p-2 rounded text-white text-xl pl-5 pr-5"
+                      }
+                      onClick={buyStock}
+                    >
+                      Buy
+                    </span>
+                    &nbsp;&nbsp;&nbsp;
+                  </span>
+                )
+                /*{<span className={'bg-red-600 cursor-pointer p-2 rounded text-white text-xl pl-5 pr-5'}>Sell</span>}*/
+              
             </div>
           </div>
         )}
