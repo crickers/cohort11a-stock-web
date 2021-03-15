@@ -134,7 +134,7 @@ function Search(props) {
 
       <div className="grid grid-cols-2">
         <div className={"border p-5"}>
-          <h1 className={"text-2xl"}>stock name/symbol goes here</h1>
+          {/* <h1 className={"text-2xl"}>stock name/symbol</h1> */}
         </div>
         <div className={"border p-5"}>
           <span>
@@ -161,15 +161,17 @@ function Search(props) {
           <div className="grid grid-cols-2">
             <div className={"border p-5"}>
               {/*{currentStock && <h1 className={'text-2xl'}>{currentStock.data}</h1>}*/}
-              <h1 className={"text-2xl"}>
-                {ticker} :{" "}
-                {currentStock && (
-                  <span>
-                    &nbsp;&nbsp;{currentStock.data.currency}{" "}
-                    {currentStock.data.price}
-                  </span>
-                )}
-              </h1>
+              {ticker && (
+                <h1 className={"text-2xl"}>
+                  {ticker} :
+                  {currentStock && (
+                    <span>
+                      &nbsp;&nbsp;{currentStock.data.currency}
+                      {currentStock.data.price}
+                    </span>
+                  )}
+                </h1>
+              )}
             </div>
             <div className={"border p-5"}>
               <span>
